@@ -17,6 +17,7 @@
     buttonsContainer.style.zIndex = '9999';
     buttonsContainer.style.display = 'flex';
     buttonsContainer.style.flexDirection = 'row';
+    
     // Create buttons for each speed
     speeds.forEach(speed => {
       const button = document.createElement('button');
@@ -24,18 +25,30 @@
       button.style.margin = '2px';
       button.style.padding = '5px';
       button.style.fontSize = '14px';
-      button.style.backgroundColor = '#ffffffcc';
       button.style.border = '1px solid #ccc';
       button.style.borderRadius = '4px';
       button.style.cursor = 'pointer';
       button.style.width = '48px';
       button.style.margin = '2px';
+      button.style.backgroundColor = '#ffffffcc'; // Set initial background color
+
+      // Add a CSS class to indicate the button is clicked
+      button.classList.add('speed-button');
 
       // Set the video playback speed when clicked
       button.addEventListener('click', () => {
         const video = document.querySelector('video');
         if (video) {
           video.playbackRate = speed;
+          // Remove the active class from all buttons and reset background color
+          document.querySelectorAll('.speed-button').forEach(otherButton => {
+            otherButton.classList.remove('active');
+            otherButton.style.backgroundColor = '#ffffffcc'; // Reset background color
+          });
+          // Add a CSS class to indicate the button is active
+          button.classList.add('active');
+          // Add inline CSS to change the background color
+          button.style.backgroundColor = '#7daaff'; /* blue color */
         }
       });
       buttonsContainer.appendChild(button);

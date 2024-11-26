@@ -12,17 +12,13 @@
     // Create a container for the buttons
     buttonsContainer = document.createElement('div');
     buttonsContainer.style.position = 'absolute';
-    buttonsContainer.style.top = '-10px';
-    buttonsContainer.style.right = '28px';
+    buttonsContainer.style.top = '-4px';
+    buttonsContainer.style.right = '0px';
     buttonsContainer.style.zIndex = '9999';
     buttonsContainer.style.display = 'flex';
     buttonsContainer.style.flexDirection = 'row';
-    buttonsContainer.style.width = '370px';
-
     // Create buttons for each speed
-    let i = 0;
     speeds.forEach(speed => {
-      i++;
       const button = document.createElement('button');
       button.textContent = `${speed}x`;
       button.style.margin = '2px';
@@ -32,9 +28,8 @@
       button.style.border = '1px solid #ccc';
       button.style.borderRadius = '4px';
       button.style.cursor = 'pointer';
-      button.style.position = 'fixed'
       button.style.width = '48px';
-      button.style.marginLeft = i * 50 + 'px';
+      button.style.margin = '2px';
 
       // Set the video playback speed when clicked
       button.addEventListener('click', () => {

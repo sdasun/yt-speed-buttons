@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Speed Buttons",
+  "version": "1.0",
+  "description": "Adds speed control buttons to YouTube videos.",
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
